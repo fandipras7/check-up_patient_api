@@ -7,6 +7,7 @@ const morgan = require('morgan')
 const helmet = require('helmet')
 const xss = require('xss-clean')
 const PORT = process.env.PORT || 8080
+const mainRoute = require('./src/routes/index')
 
 app.use(express.json())
 app.use(cors())
@@ -19,16 +20,21 @@ app.use(
 app.use(xss())
 
 // route
-app.use('/api')
+app.use('/api', mainRoute)
 
 app.all('*', (req, res, next)=> {
     next(new createError.NotFound())
 })
 
 app.use((err, req, res, next) => {
-    let messError = err.message || 'Internal Server Error'
+    let messError = err.message || 'UNKNOWN_ERROR'
     const statusCode = err.status || 500
+    let status
+    if(statusCode == 400){status = 'INVALID_REQUEST'}
+    if(statusCode == 404){status = 'DATA_NOT_FOUND'}
+    if(statusCode == 500){status = 'UNKNOWN_ERROR'}
     res.status(statusCode).json({
+        status,
         message: messError
     })
 })
