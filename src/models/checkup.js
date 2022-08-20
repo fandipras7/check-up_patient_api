@@ -35,7 +35,7 @@ const modelCheckUp = {
   },
 
   updateData: ({id, status, updated_at}) => {
-    return pool.query(`UPDATE patient SET status = '${status}', updated_at = '${updated_at}' where id = '${id}'`)
+    return pool.query(`UPDATE patient SET status = $1, updated_at = $2 where id = $3`,[status, updated_at, id])
   }
 };
 

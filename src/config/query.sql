@@ -26,3 +26,19 @@ CREATE TABLE patient (
     phone_number VARCHAR(15) NOT NULL,
     status VARCHAR(10)
 )
+
+{
+  "name": "Jonas",
+  "identity_number": "10212972382385",
+  "address": "Pangkalan Jati",
+  "complaint": "flue",
+  "phone_number": "089237236"
+}
+
+{
+  "name": "Calvin Joe",
+  "identity_number": "10212972382382",
+  "address": "New York",
+  "complaint": "Headache",
+  "phone_number": "0892372367236"
+}
