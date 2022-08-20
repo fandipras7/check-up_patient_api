@@ -4,7 +4,6 @@
 <br />
 <div align="center">
   <a href="https://github.com/fandipras7/check-up_patient_api">
-    <img src="https://i.postimg.cc/Twvhc0s1/cv-icon-237602-removebg-preview.png" alt="Logo" width="200px">
   </a>
 
   <h3 align="center">Backend Checkup Patient</h3>
